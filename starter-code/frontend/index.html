@@ -10,17 +10,17 @@
 </head>
 
 <!-- ADD ng-app to the body tag -->
-<body>
+<body ng-app="CriminalsApp">
 
   <h1>Infamous Criminals</h1>
 
 <!-- ADD ng-controller to the section tag -->
-  <section>
+  <section ng-controller="CriminalsController as criminals">
 
     <!-- FILL IN THE BLANKS! This should show the criminals name, location and status. The span with the status in it should have a class of the status (watch for case sensitivity)-->
     <ul id="criminals">
-      <li ng-repeat="" data-id="">
-        <strong>{{}}</strong> <em>{{}}</em> <span class='status {{}}'>{{}}</span>
+      <li ng-repeat="criminal in criminals.all" data-id="">
+        <strong>{{criminal.name}}</strong> <em>{{criminal.location}}</em> <span class='status {{}}'>{{criminal.status}}</span>
         <button class='delete' ng-click="">X</button>
       </li>
     </ul>
