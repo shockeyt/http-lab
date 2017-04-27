@@ -24,7 +24,9 @@ router.route('/criminals/:id')
   .patch(criminalsController.updateCriminal)
 
   // DELETE remove specific criminal from DB
-  .delete(criminalsController.removeCriminal);
+  .delete(criminalsController.removeCriminal)
+
+  .put(criminalsController.updateCriminal);
 
 
 module.exports = router

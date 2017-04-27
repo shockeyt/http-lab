@@ -6,6 +6,8 @@ CriminalsController.$inject = ['$http'];
 function CriminalsController($http) {
 	var self = this;
 	self.all = [];
+	self.editForm = false;
+
 
 	//GET all
 	function getCriminals() {
@@ -47,6 +49,7 @@ function CriminalsController($http) {
 
 	this.deleteCriminal = deleteCriminal;
 
+	//DELETE
 	function deleteCriminal(criminal) {
 		console.log("delete button clicked");
 
@@ -62,11 +65,40 @@ function CriminalsController($http) {
 		
 	}
 
+	this.editCriminal = editCriminal;
+	var putCriminal = {};
+	// self.editCriminal = function () {
+		
+	// };
 
+	//PUT (doesn't work)
+	function editCriminal(criminal) {
+		self.editForm = !self.editForm;
 
+		self.putCriminal = ({
+			name: self.name,
+			location: self.location,
+			status: self.status
+		});
 
+		$http
+		.put('http://localhost:3000/criminals/' + criminal._id)
+		.then(function(response){
+
+			var index = self.all.indexOf(criminal);
+			//self.criminal.name = putCriminal.name;
+			criminal.name = putCriminal.name; 
+
+			console.log(index);	
+			console.log(criminal.name);
+			console.log(criminal.location);
+			console.log(criminal.status);
+		});
+	}
 
 
 
 
 }
+
+

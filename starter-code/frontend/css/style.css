@@ -55,6 +55,19 @@ ul#criminals li button.delete:hover {
   color: grey;
 }
 
+ul#criminals li button.edit {
+  margin-left: 0.618rem;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 100px;
+  background: white;
+  color: rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+ul#criminals li button.edit:hover {
+  border-color: grey;
+  color: grey;
+}
+
 span.status {
   font-size: 0.6rem;
   font-weight: bold;

@@ -22,6 +22,7 @@
       <li ng-repeat="criminal in criminals.all" data-id="">
         <strong>{{criminal.name}}</strong> <em>{{criminal.location}}</em> <span class='status {{}}'>{{criminal.status}}</span>
         <button class='delete' ng-click="criminals.deleteCriminal(criminal)">X</button>
+        <button class='edit' ng-click="criminals.editCriminal(criminal)">edit</button>
       </li>
     </ul>
 
@@ -38,6 +39,7 @@
       <div>
         <label for="newCriminal-status">Status:</label>
 
+
 <!-- ADD ng-model to the select tag -->
         <select id="newCriminal-status" ng-model="criminals.newCriminal.status">
           <option value="" disabled>- - Please Select One - -</option>
@@ -49,6 +51,33 @@
       <div>
         <input type="submit" value="Add Criminal">
       </div>
+    </form>
+
+    <!-- EDIT a criminal -->
+    
+    <form ng-show="criminals.editForm" ng-submit="criminals.editCriminal()">
+      <h3>Edit Criminal</h3>
+      <div>
+        <label for="putCriminal-name">Name:</label>
+        <input type="text" id="putCriminal-name" ng-model="criminals.putCriminal.name" placeholder="Prof. Moriarty">
+      </div>
+      <div>
+        <label for="putCriminal-location">Location:</label>
+        <input type="text" id="putCriminal-location" ng-model="criminals.putCriminal.location" placeholder="Reichenbach Falls, CH">
+      </div>
+      <div>
+        <label for="putCriminal-status">Status:</label>
+            <select id="putCriminal-status" ng-model="criminals.putCriminal.status">
+          <option value="" disabled>- - Please Select One - -</option>
+          <option value="Alive">Alive</option>
+          <option value="Dead">Dead</option>
+          <option value="Unknown" selected>Unknown</option>
+        </select>
+      </div>
+      <div>
+        <input type="submit" value="Edit Criminal">
+      </div>
+    </form>
     </form>
 
   </section>
